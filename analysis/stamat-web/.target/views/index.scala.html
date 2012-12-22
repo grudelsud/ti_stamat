@@ -1,0 +1,255 @@
+@(title: String)
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>@title</title>
+		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+		<link rel="stylesheet" type="text/css" media="all" href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")">
+		<link rel="stylesheet" type="text/css" media="all" href="@routes.Assets.at("bootstrap/css/bootstrap-responsive.min.css")">
+		<link rel="stylesheet" type="text/css" media="all" href="@routes.Assets.at("stylesheets/main.css")">
+		<link rel="stylesheet" type="text/css" media="all" href="@routes.Assets.at("google-code-prettify/prettify.css")">
+
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/main.js")"></script>
+		<script type="text/javascript" src="@routes.Assets.at("google-code-prettify/prettify.js")"></script>
+	</head>
+	<body>
+	<div class="container">
+
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="/">@title</a>
+				</div>
+			</div>
+		</div>
+		<div class="row head-margin">
+			<div class="span6">
+
+				<!-- select TEXT | JSON -->
+				<form action="" class="well form-horizontal">
+					<div class="control-group">
+						<label for="" class="control-label">Send data as: </label>
+						<div class="controls">
+							<label class="radio"><input type="radio" name="data-format" id="radio-format-text" value="text" checked> Serialized text (default)</label>
+							<label class="radio"><input type="radio" name="data-format" id="radio-format-json" value="json"> JSON (only 1st input in the form will be sent)</label>
+						</div>
+					</div>
+				</form>
+
+				<!-- extract entities -->
+				<div class="accordion" id="form-group">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a href="#form-extract-ent" data-parent="#form-group" data-toggle="collapse" class="accordion-toggle">Extract entities</a>
+						</div>
+						<div class="accordion-body collapse" id="form-extract-ent">
+							<div class="accordion-inner">
+
+								<!-- entity extractor selection -->
+								<form action="" class="form-horizontal" id="form-extract-ent-classifier">
+									<div class="control-group">
+										<label for="" class="control-label">Use Classifier: </label>
+										<div class="controls">
+											<label class="radio"><input type="radio" name="entity-classifier" id="radio-format-sner" value="/entitiesExtractSNER" checked> Stanford</label>
+											<label class="radio"><input type="radio" name="entity-classifier" id="radio-format-gate" value="/entitiesExtractGATE"> Gate</label>
+										</div>
+									</div>
+								</form>
+
+								<!-- content submission form -->
+								<form action="/entitiesExtractSNER" class="form-horizontal" method="post" id="form-extract-ent-content">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="extract-text">Text</label>
+											<div class="controls">
+												<textarea class="span4" id="extract-text" name="text" rows="6"></textarea>
+											</div>
+										</div>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Extract</button>
+											<button class="btn">Cancel</button>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<!-- create index. seriously, we don't wanna do this, it's useless -->
+					<!-- 
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a href="#form-newindex" data-parent="#form-group" data-toggle="collapse" class="accordion-toggle">Create Index</a>
+						</div>
+						<div class="accordion-body collapse" id="form-newindex">
+							<div class="accordion-inner">
+								<form action="/visualIndex" class="form-horizontal" method="post">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="newindex-name">Name</label>
+											<div class="controls">
+												<input type="text" class="span4" id="newindex-name" name="name">
+											</div>
+										</div>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Create</button>
+											<button class="btn">Cancel</button>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+					-->
+
+					<!-- index images -->
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a href="#form-indeximages" data-parent="#form-group" data-toggle="collapse" class="accordion-toggle">Index Images</a>
+						</div>
+						<div class="accordion-body collapse" id="form-indeximages">
+							<div class="accordion-inner">
+
+								<!-- content indexing function selection -->
+								<form action="" class="form-horizontal" id="form-indeximages-selectfrom">
+									<div class="control-group">
+										<label for="" class="control-label">Read images to be indexed from: </label>
+										<div class="controls">
+											<label class="radio"><input type="radio" name="index-selectfrom" id="radio-selectfrom-json" value="/visualIndexImagesFromJSON" checked> JSON</label>
+											<label class="radio"><input type="radio" name="index-selectfrom" id="radio-selectfrom-db" value="/visualIndexImagesFromDB"> Database</label>
+										</div>
+									</div>
+								</form>
+
+								<form action="/visualIndexImagesFromJSON" class="form-horizontal" method="post" id="form-indeximages-content">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="">Parameters<br>(Endpoint expects JSON Format)</label>
+											<div class="controls">
+												<textarea class="span4" id="imagelist-body" name="body" rows="6"></textarea>
+											</div>
+										</div>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Send</button>
+											<button class="btn">Cancel</button>
+										</div>
+									</fieldset>
+								</form>
+								<p>below a working example:</p>
+								<pre class="prettyprint">/* FROM JSON */
+{
+"index":"all", 
+"images":[
+{"id":"76402","url":"https:\/\/s3.amazonaws.com\/stamat.scrape.images\/1343816402.829657.png"},
+{"id":"76229","url":"https:\/\/s3.amazonaws.com\/stamat.scrape.images\/1343805602.090142.png"}]
+}
+/* FROM DB */
+{
+"index":"all", 
+"numberofresults":50
+}
+								</pre>
+							</div>
+						</div>
+					</div>
+
+					<!-- search images -->
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a href="#form-visualsimilarity" data-parent="#form-group" data-toggle="collapse" class="accordion-toggle">Search Images</a>
+						</div>
+						<div class="accordion-body collapse" id="form-visualsimilarity">
+							<div class="accordion-inner">
+								<form action="/visualSimilarity" class="form-horizontal" method="post">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="">Query<br>(Endpoint expects JSON Format)</label>
+											<div class="controls">
+												<textarea class="span4" id="visualsimilarity-body" name="body" rows="6"></textarea>
+											</div>
+										</div>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Search</button>
+											<button class="btn">Cancel</button>
+										</div>
+									</fieldset>
+								</form>
+								<p>below a working example</p>
+								<pre class="prettyprint">/* From URL */
+{
+"index":"split",
+"source":"url",
+"fileidentifier":"http:\/\/cdn.hypebeast.com\/image\/2012\/07\/bandit9-nero-motorcycle-1.jpg",
+"feature":"featureCEDD",
+"numberofresults":10
+}
+/* From Index */
+{
+"index":"split",
+"source":"index",
+"fileidentifier":"84845",
+"feature":"featureCEDD",
+"numberofresults":10
+}
+								</pre>
+								<p><span class="label label-info">index</span> must be the name of an existing index</p>
+								<p><span class="label label-warning">source</span> must be either <span class="label">index</span> or <span class="label">url</span></p>
+								<p><span class="label label-success">fileidentifier</span> can be a URL or file descriptor as saved in the index, according to what selected for <span class="label label-warning">source</span></p>
+								<p><span class="label label-important">feature</span> must be one of: </p>
+								<code>featureAutoColorCorrelogram, descriptorScalableColor, featureCEDD, featureColorHistogram, descriptorColorLayout, featureTAMURA, descriptorEdgeHistogram, featureFCTH, featureGabor, featureJCD, featureJpegCoeffs, featureSift, featureSurf</code>
+							</div>
+						</div>
+					</div>
+
+					<!-- rank news -->
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a href="#form-newsrank" data-parent="#form-group" data-toggle="collapse" class="accordion-toggle">Rank News</a>
+						</div>
+						<div class="accordion-body collapse" id="form-newsrank">
+							<div class="accordion-inner">
+								<form action="/rankNews" class="form-horizontal" method="post">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="">Query<br>(Endpoint expects JSON Format)</label>
+											<div class="controls">
+												<textarea class="span4" id="ranknews-body" name="body" rows="6"></textarea>
+											</div>
+										</div>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Search</button>
+											<button class="btn">Cancel</button>
+										</div>
+									</fieldset>
+								</form>
+								<p>below a working example</p>
+								<pre class="prettyprint">{
+"user_name":"gigaom",
+"user_auth":"grudelsud",
+"news":[
+{"id":"first","text":"elezioni politiche italia primarie partito democratico"},
+{"id":"second","text":"google nexus mobile iphone application wired"}]
+}
+								</pre>
+								<p><span class="label label-info">user_auth</span> must be the name of a twitter-authenticated user</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- DA RESPONSE, yeahh! -->
+			<div class="span6">
+				<div id="response">
+					<pre id="response-inner" class="prettyprint linenums"></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

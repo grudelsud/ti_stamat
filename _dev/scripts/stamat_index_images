@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+
+LOGFILE='indexing.log'
+RESPONSE=$(curl -H 'Content-Type: application/json' -d '{"index":"split", "numberofresults":100}' http://fom.londondroids.com:9000/visualIndexImagesFromDB)
+# echo $RESPONSE > $LOGFILE
+# cat $LOGFILE | mail -s "STAMAT hourly indexing" thomasalisi@gmail.com
+# rm -f $LOGFILE

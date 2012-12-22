@@ -1,0 +1,58 @@
+<div id="content_media">
+	<div class="row">
+		<!-- Pinterest style: 3 columns without clear space between rows -->
+		<div class="span2 list1">
+		<ul class="thumbnails">
+		<% var count = 0; %>
+		<% _.each(media.models, function(item) { %>
+			<% count++; %>
+			<% if(count % 3 == 1) { %>
+			<li class="span2">
+				<a href="<%= item.get('url') %>" class="thumbnail item"><img src="<%= item.get('url') %>" data-id="<%= item.get('id') %>"></a>
+				<div class="caption">
+					<p><%= item.get('title') %> </p>
+					<small><%= item.get('date') %><br> Size:<%= item.get('width') %>x<%= item.get('height') %><br> <i class="icon-hand-right"></i> <a href="<%= item.get('permalink') %>">open web page</a></small>
+				</div>
+			</li>
+			<% } %>
+		<% }); %>
+		</ul>
+		</div>
+
+		<div class="span2 list2">
+		<ul class="thumbnails">
+		<% var count = 0; %>
+		<% _.each(media.models, function(item) { %>
+			<% count++; %>
+			<% if(count % 3 == 2) { %>
+			<li class="span2">
+				<a href="<%= item.get('url') %>" class="thumbnail item"><img src="<%= item.get('url') %>" data-id="<%= item.get('id') %>"></a>
+				<div class="caption">
+					<p><%= item.get('title') %> </p>
+					<small><%= item.get('date') %><br> Size:<%= item.get('width') %>x<%= item.get('height') %><br> <i class="icon-hand-right"></i> <a href="<%= item.get('permalink') %>">open web page</a></small>
+				</div>
+			</li>
+			<% } %>
+		<% }); %>
+		</ul>
+		</div>
+
+		<div class="span2 list3">
+		<ul class="thumbnails">
+		<% var count = 0; %>
+		<% _.each(media.models, function(item) { %>
+			<% count++; %>
+			<% if(count % 3 == 0) { %>
+			<li class="span2">
+				<a href="<%= item.get('url') %>" class="thumbnail item"><img src="<%= item.get('url') %>" data-id="<%= item.get('id') %>"></a>
+				<div class="caption">
+					<p><%= item.get('title') %> </p>
+					<small><%= item.get('date') %><br> Size:<%= item.get('width') %>x<%= item.get('height') %><br> <i class="icon-hand-right"></i> <a href="<%= item.get('permalink') %>">open web page</a></small>
+				</div>
+			</li>
+			<% } %>
+		<% }); %>
+		</ul>
+		</div>
+	</div>
+</div>

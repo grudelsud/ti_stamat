@@ -1,0 +1,109 @@
+<p>
+	<i class="icon-eye-open"></i> <a href="#" class="read-text" data-id="<%= id %>">read text</a> or 
+	<i class="icon-hand-right"></i> <a href="<%= permalink %>">go to website</a>
+</p>
+<div class="content_tags">
+	<dl>
+		<dt>Keywords</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'keywords') { %>
+			<span class="label label-info" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% if (_.find(tags.models, function(tag) { return tag.get('type') == 'people' })) { %>
+		<dt>People</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'people') { %>
+			<span class="label label-important" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% } %>
+		<% if (_.find(tags.models, function(tag) { return tag.get('type') == 'organizations' })) { %>
+		<dt>Organizations</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'organizations') { %>
+			<span class="label" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% } %>
+		<% if (_.find(tags.models, function(tag) { return tag.get('type') == 'locations' })) { %>
+		<dt>Locations</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'locations') { %>
+			<span class="label label-success" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% } %>
+	</dl>
+</div>
+<div class="content_tweets content_tweets_<%= id %>"></div>
+<div class="content_media">
+	<div class="row">
+		<!-- Pinterest style: two columns without clear space between rows -->
+		<div class="span2 list1">
+			<ul class="thumbnails">
+			<% var count = 0; %>
+			<% _.each(media.models, function(item) { %>
+				<% count++; %>
+				<% if(count % 3 == 1) { %>
+				<li class="span2">
+				<a href="<%= item.get('url') %>" class="thumbnail">
+				<% if(item.get('type') == 'image') { %>
+				<img src="<%= item.get('url') %>">
+				<% } else if(item.get('type') == 'video') { %>
+				<i class="icon-film"></i>
+				<% } %>
+				</a>
+				</li>
+				<% } %>
+			<% }); %>	
+			</ul>		
+		</div>
+		<div class="span2 list2">
+			<ul class="thumbnails">
+			<% count = 0; %>
+			<% _.each(media.models, function(item) { %>
+				<% count++; %>
+				<% if(count % 3 == 2) { %>
+				<li class="span2">
+				<a href="<%= item.get('url') %>" class="thumbnail">
+				<% if(item.get('type') == 'image') { %>
+				<img src="<%= item.get('url') %>">
+				<% } else if(item.get('type') == 'video') { %>
+				<i class="icon-film"></i>
+				<% } %>
+				</a>
+				</li>
+				<% } %>
+			<% }); %>
+			</ul>
+		</div>
+		<div class="span2 list3">
+			<ul class="thumbnails">
+			<% count = 0; %>
+			<% _.each(media.models, function(item) { %>
+				<% count++; %>
+				<% if(count % 3 == 0) { %>
+				<li class="span2">
+				<a href="<%= item.get('url') %>" class="thumbnail">
+				<% if(item.get('type') == 'image') { %>
+				<img src="<%= item.get('url') %>">
+				<% } else if(item.get('type') == 'video') { %>
+				<i class="icon-film"></i>
+				<% } %>
+				</a>
+				</li>
+				<% } %>
+			<% }); %>
+			</ul>
+		</div>
+	</div>
+</div>

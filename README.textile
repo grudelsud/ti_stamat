@@ -1,0 +1,16 @@
+h1. read below please!
+
+It might save some time to someone else's work. This is how the repo is organized:
+
+* @/_dev@ contains loads of interesting stuff, everything is dev related, subfolders are:
+** @/_dev/db@ contains progressive steps of database structure and automatic backups
+** @/_dev/images@ sources for web app, mainly fireworks layered png's
+** @/_dev/lib@ contains various libs and git submodules used around the project, have a look at "github help":http://help.github.com/submodules/ to learn how to deal with updates
+** @/_dev/scripts@ contains cron scripts and linux automations in general
+* @/analysis@ is the name of the game, where all the hardcore code lives. you might have a look at the following subfolders:
+** @/analysis/stamat-cmdline@ it's a command line wrapper for stamat-common
+** @/analysis/stamat-common@ java library containing topic extraction, language detection, image similarity classification and so on
+** @/analysis/stamat-native@ supposed to contain C stuff, hence the low level image processing algorithms
+* @/capture@ python code to capture tweets, requires python 2.7 virtualenv with tweepy and pymongo
+* @/data@ lda models, language profiles, stopwords
+* @/web@ codeigniter project with all the web frontend

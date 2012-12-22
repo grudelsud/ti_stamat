@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# stamat_hourly cron hourly
+
+LOGFILE='logodetection.log'
+
+echo 'go get them, tiger!'
+wget --timeout=0 -O - 'http://fom.londondroids.com/stamat/serviceLogoDetection/runPendingProcess.php' > $LOGFILE
+echo '' >> $LOGFILE
+# cat $LOGFILE | mail -s "STAMAT hourly fetch" thomasalisi@gmail.com
+rm -f $LOGFILE

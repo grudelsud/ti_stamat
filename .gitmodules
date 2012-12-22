@@ -1,0 +1,21 @@
+[submodule "web/application/libraries/simplepie"]
+	path = web/application/libraries/simplepie
+	url = https://github.com/simplepie/simplepie.git
+[submodule "_dev/lib/CodeIgniter-Ion-Auth"]
+	path = _dev/lib/CodeIgniter-Ion-Auth
+	url = https://github.com/benedmunds/CodeIgniter-Ion-Auth.git
+[submodule "_dev/lib/grocery-crud"]
+	path = _dev/lib/grocery-crud
+	url = https://github.com/scoumbourdis/grocery-crud.git
+[submodule "_dev/lib/facebook-php-sdk"]
+	path = _dev/lib/facebook-php-sdk
+	url = https://github.com/facebook/facebook-php-sdk.git
+[submodule "_dev/lib/bootstrap"]
+	path = _dev/lib/bootstrap
+	url = https://github.com/twitter/bootstrap.git
+[submodule "_dev/lib/language-detection"]
+	path = _dev/lib/language-detection
+	url = https://code.google.com/p/language-detection
+[submodule "_dev/lib/JSON-java"]
+	path = _dev/lib/JSON-java
+	url = git://github.com/douglascrockford/JSON-java.git

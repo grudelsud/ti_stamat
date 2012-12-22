@@ -1,0 +1,104 @@
+.head-margin {
+	margin-top: 55px;
+}
+.pagination {
+	margin: 0;
+	height: 44px;
+}
+.loader {
+	background: url(../img/ajax-loader.gif) no-repeat;
+	text-indent: 24px;
+	width: 16px;
+	height: 16px;
+	display: none;
+}
+article.feed_item_container {
+	padding: 2px 0;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+}
+	article h3 {
+		line-height: 30px;
+	}
+	article div.meta {
+		margin: -10px 0 10px;
+		color: #999;
+		font-size: 13px;
+	}
+		article div.meta a {
+			color: #666;
+		}
+		article div.meta a:hover {
+			text-decoration: underline;
+		}
+	article div.content {
+		margin-bottom: 10px;
+	}
+
+.reaction span.label a {
+	color: white;
+}
+
+	.reaction .content_media {
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+
+	.reaction .content_tweets {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 5px;
+		margin-bottom: 10px;
+		max-height: 200px;
+		overflow-y: scroll;
+	}
+
+	#tweetfeed_tweets img,
+	.reaction .content_tweets img {
+		position: absolute;
+		top: 5px;
+		left: 0;
+	}
+
+	#tweetfeed_tweets .tweet,
+	.reaction .tweet {
+		position: relative;
+		min-height: 60px;
+	}
+
+	#tweetfeed_tweets .tweet_head, #tweetfeed_tweets .tweet_content,
+	.reaction .tweet_head, .reaction .tweet_content {
+		margin-left: 54px;
+	}
+
+	#tweetfeed_tweets .tweet_meta,
+	.reaction .tweet_meta {
+		font-size: 11px;
+		color: #666;
+	}
+
+#tag_directory {
+	padding: 15px 0;
+}
+	#tag_directory ul {
+		list-style-type: none;
+		margin-left: 0;
+	}
+	#tag_directory li {
+		margin-bottom: 3px;
+	}
+	#tag_directory li ul a {
+		display: block;
+		padding: 4px 0 4px 3px;
+		border-bottom: 1px solid #eee;
+	}
+
+/*
+#media_directory .thumbnail {
+	height: 170px;
+	overflow: hidden;
+}
+*/
+#map_canvas {
+	height: 600px;
+}

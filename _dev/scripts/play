@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+BASE_DIR="/home/ubuntu/STAMAT/server"
+cd $BASE_DIR
+
+# without slashes as it's used for java execution
+PLAY_DIR="stamat-web-1.0-SNAPSHOT"
+
+LOG_FILE=$BASE_DIR/server.log
+PID_FILE=$BASE_DIR/$PLAY_DIR/RUNNING_PID
+
+if [ -f "$PID_FILE" ]
+then
+	echo "process running > $(cat $PID_FILE) - $PID_FILE"
+else
+	MESSAGE="$(date) - restarting play!"
+	echo $MESSAGE
+	# echo $MESSAGE | mail -s "STAMAT play restart" thomasalisi@gmail.com
+	# other parameters worth investigating in case of failures: -XX:MaxPermSize=128m -XX:ErrorFile=$BASE_DIR/error.log
+	java -Xmx1536m -Xms512m -cp "$PLAY_DIR/lib/*" -Dconfig.file=$PLAY_DIR/staging.conf play.core.server.NettyServer $PLAY_DIR &> $LOG_FILE &
+fi

@@ -1,0 +1,129 @@
+@charset 'UTF-8';
+/*
+ * jQuery File Upload Plugin CSS Example 1.0
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2012, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+body{
+  padding-top: 60px;
+}
+table#tableProcess td {
+    padding: 3px;
+}
+table#tableProcess tr.row_selected td {
+    background: lightyellow;
+}
+table {
+    border: 1px solid #ccc;
+}
+
+table tr {
+    background: #FFF;
+}
+
+table tr {
+    background: #EFEFEF;
+}
+
+table .btn-danger, span.btn-success, #btncreate, button.btn-success, input.detailedResuls  {
+    
+    background-color: #EEE;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EEE), color-stop(100%, #CCC));
+    background-image: -webkit-linear-gradient(top, #EEE, #CCC);
+    background-image: -moz-linear-gradient(top, #EEE, #CCC);
+    background-image: -ms-linear-gradient(top, #EEE, #CCC);
+    background-image: -o-linear-gradient(top, #EEE, #CCC);
+    background-image: linear-gradient(top, #EEE, #CCC);
+    border: 1px solid #CCC;
+    border-bottom: 1px solid #BBB;
+    border-radius: 3px;
+    color: #333;
+    font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    padding: 8px 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #EEE;
+    width: 150px;
+}
+
+table .btn-danger:hover, span.btn-success:hover, #btncreate:hover, button.btn-success:hover, input.detailedResuls:hover   {
+    
+    background-color: #EEE;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EEE), color-stop(100%, #CCC));
+    background-image: -webkit-linear-gradient(top, #EEE, #CCC);
+    background-image: -moz-linear-gradient(top, #EEE, #CCC);
+    background-image: -ms-linear-gradient(top, #EEE, #CCC);
+    background-image: -o-linear-gradient(top, #EEE, #CCC);
+    background-image: linear-gradient(top, #EEE, #CCC);
+    background-position: 0 0 !important;
+    border: 1px solid #CCC;
+    border-bottom: 1px solid #BBB;
+    border-radius: 3px;
+    color: #333;
+    font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    padding: 8px 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #EEE;
+    width: 150px;
+}
+
+table {
+    border: 1px solid #ccc;
+}
+
+table tr {
+    background: #FFF;
+}
+
+table tr {
+    background: #EFEFEF;
+}
+
+
+
+#urlFile {margin-left: 40px;}
+
+table img {
+    padding: 2px;
+    border: 1px solid #ddd;
+}
+
+table a {
+    color:#333;
+}
+
+table td.delete  {
+    width: 150px;
+    
+}
+
+table td.delete button  {
+    width: 100px;
+    height: 30px;
+    padding: 5px 0 20px 0;
+    
+}
+table td.delete button:hover  {
+    width: 100px;
+    height: 30px;
+    padding: 5px 0 20px 0;
+    
+}
+
+table input.detailedResuls  {
+    width: 100px;
+    height: 30px;
+    padding: 5px 0 20px 0;
+    
+}
+table input.detailedResuls:hover  {
+    width: 100px;
+    height: 30px;
+    padding: 5px 0 20px 0;
+    
+}

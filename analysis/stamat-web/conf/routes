@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+#########################################################################
+## NEWSRANK
+##
+POST    /rankNews        controllers.Application.rankNews()
+
+#########################################################################
+## ENTITIES
+##
+POST    /entitiesExtractSNER        controllers.Application.entitiesExtractSNER()
+POST    /entitiesExtractGATE        controllers.Application.entitiesExtractGATE()
+
+#########################################################################
+## VISUAL SIMILARITY
+##
+GET     /visualIndex                controllers.Application.visualIndex()
+POST    /visualIndex                controllers.Application.visualNewIndex()
+
+POST    /visualIndexImagesFromDB    controllers.Application.visualIndexImagesFromDB()
+POST    /visualIndexImagesFromJSON  controllers.Application.visualIndexImagesFromJSON()
+
+POST    /visualSimilarity           controllers.Application.visualSimilarity()
+
+#########################################################################
+## OTHER STUFF
+##
+GET     /asyncCanvas                  controllers.Application.asyncCanvas()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

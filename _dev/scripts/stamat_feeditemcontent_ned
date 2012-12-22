@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+
+LOGFILE='ned.log'
+RESPONSE=$(curl http://fom.londondroids.com/stamat/index.php/api/fetch_stamat_entities/limit/99)
+# echo $RESPONSE > $LOGFILE
+#cat $LOGFILE | mail -s "STAMAT named entities extraction" thomasalisi@gmail.com
+# rm -f $LOGFILE

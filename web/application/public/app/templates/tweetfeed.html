@@ -1,0 +1,43 @@
+<div id="tweetfeed_tags">
+	<dl>
+		<dt>Keywords</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'keywords') { %>
+			<span class="label label-info" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% if (_.find(tags.models, function(tag) { return tag.get('type') == 'people' })) { %>
+		<dt>People</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'people') { %>
+			<span class="label label-important" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% } %>
+		<% if (_.find(tags.models, function(tag) { return tag.get('type') == 'organizations' })) { %>
+		<dt>Organizations</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'organizations') { %>
+			<span class="label" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% } %>
+		<% if (_.find(tags.models, function(tag) { return tag.get('type') == 'locations' })) { %>
+		<dt>Locations</dt>
+		<dd>
+			<% _.each(tags.models, function(tag) { %>
+			<% if (tag.get('type') == 'locations') { %>
+			<span class="label label-success" data-id="<%= tag.get('id') %>"><%= tag.get('name') %></span> 
+			<% } %>
+			<% }); %>
+		</dd>
+		<% } %>
+	</dl>
+</div>
+<div id="tweetfeed_tweets"></div>
